@@ -15,7 +15,7 @@ Console.WriteLine($"Dice roll: {roll1} + {roll2} + {roll3} = {total}");
 
 if (roll1 == roll2 && roll2 == roll3)
 {
-    Console.WriteLine("You rolled triples! + 6 bonus to total!");
+    Console.WriteLine("You rolled triples! + 6 bonus to total will increse!");
     total += 6;
     Console.WriteLine($"Your total is {total}");
 }
