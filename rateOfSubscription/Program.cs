@@ -11,7 +11,8 @@ namespace RateOfSubscription
             int daysUntilExpiration = random.Next(12);
             int discountPercentage = 0;
 
-            Console.WriteLine(daysUntilExpiration);
+            // For checking the code 
+            // Console.WriteLine(daysUntilExpiration);
             if (daysUntilExpiration < 1)
             {
                 Console.WriteLine("Your subscription has expired.");
