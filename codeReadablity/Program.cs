@@ -6,22 +6,21 @@ namespace CodeReadability
     {
         static void Main(string[] args)
         {
-            string str = " The quick brown fox jump over the lazy dog.";
+            string originalMessage = " The quick brown fox jump over the lazy dog.";
 
-            // convert the meassage into a char array
-            char[] charMessage = str.ToCharArray();
+            char[] message = originalMessage.ToCharArray();
+            Array.Reverse(message);
 
-            // Reverse the chars
-            Array.Reverse(charMessage);
-
-            int x = 0;
-            // count the o's
-            foreach (char i in charMessage) { if (i == 'o') { x++; } }
-
-            // Convert it back to the string
+            int letterCount = 0;
+            foreach (char letter in message)
+            {
+                if (letter == 'o')
+                {
+                    letterCount++;
+                }
+            }
             string new_message = new string(charMessage);
 
-            // print it out
             Console.WriteLine(new_message);
             Console.WriteLine($"The 'o' appears {x} times in the meassage.");
         }
