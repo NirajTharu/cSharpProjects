@@ -19,10 +19,10 @@ namespace CodeReadability
                     letterCount++;
                 }
             }
-            string new_message = new string(charMessage);
+            string new_message = new string(message);
 
             Console.WriteLine(new_message);
-            Console.WriteLine($"The 'o' appears {x} times in the meassage.");
+            Console.WriteLine($"The 'o' appears {letterCount} times in the meassage.");
         }
     }
 }
