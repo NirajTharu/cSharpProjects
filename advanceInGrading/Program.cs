@@ -1,4 +1,4 @@
-﻿
+﻿// Advancement in the grading system of the marks obtanin by the students 
 
 using System;
 namespace AdvanceInGrading
@@ -7,67 +7,110 @@ namespace AdvanceInGrading
     {
         static void Main(string[] args)
         {
-            int marksObtain = 8;
+            int examAssignments = 5;
+            string[] studntName = new string[] { "Sophia", "Emma", "Logan", "Andrew" };
+            int[] sophiaScore = new int[] { 90, 86, 87, 98, 100, 94, 90 };
+            int[] emmaScore = new int[] { 92, 89, 81, 96, 90, 89 };
+            int[] loganScore = new int[] { 90, 85, 81, 96, 90, 89 };
+            int[] andrewScore = new int[] { 90, 95, 87, 88, 96, 96 };
 
-            if (marksObtain >= 97 && marksObtain <= 100)
-            {
-                Console.WriteLine("A+");
-            }
-            else if (marksObtain >= 93 && marksObtain <= 96)
-            {
-                Console.WriteLine("A");
-            }
-            else if (marksObtain >= 90 && marksObtain <= 92)
-            {
-                Console.WriteLine("A-");
-            }
-            else if (marksObtain >= 87 && marksObtain <= 89)
-            {
-                Console.WriteLine("B+");
-            }
-            else if (marksObtain >= 83 && marksObtain <= 86)
-            {
-                Console.WriteLine("B");
-            }
-            else if (marksObtain >= 80 && marksObtain <= 82)
-            {
-                Console.WriteLine("B-");
-            }
-            else if (marksObtain >= 77 && marksObtain <= 79)
-            {
-                Console.WriteLine("C+");
-            }
-            else if (marksObtain >= 73 && marksObtain <= 67)
-            {
-                Console.WriteLine("C");
-            }
-            else if (marksObtain >= 70 && marksObtain <= 72)
-            {
-                Console.WriteLine("C-");
-            }
-            else if (marksObtain > 67 && marksObtain <= 69)
-            {
-                Console.WriteLine("D+");
-            }
-            else if (marksObtain >= 63 && marksObtain <= 66)
-            {
-                Console.WriteLine("D");
-            }
-            else if (marksObtain >= 60 && marksObtain <= 62)
-            {
-                Console.WriteLine("D-");
-            }
-            else if (marksObtain >= 0 && marksObtain <= 59)
-            {
-                Console.WriteLine("F");
-            }
-            else
-            {
-                Console.WriteLine("Invalid Input makrs");
-            }
+            int[] studentScores = new int[10];
+            string currentStudentLetterGrade = "";
 
+            Console.WriteLine("Student\t\tGrade\t\tGradeLetter");
+            foreach (string name in studntName)
+            {
+                string currentStudent = name;
+                if (currentStudent == "Sophia")
+                {
+                    studentScores = sophiaScore;
+                }
+                else if (currentStudent == "Emma")
+                {
+                    studentScores = emmaScore;
+                }
+                else if (currentStudent == "Logan")
+                {
+                    studentScores = loganScore;
+                }
+                else if (currentStudent == "Andrew")
+                {
+                    studentScores = andrewScore;
+                }
+
+                int sumAssignmentScores = 0;
+                decimal currentStudentGrade = 0;
+                int gradedAssignments = 0;
+
+                foreach (int score in studentScores)
+                {
+                    gradedAssignments += 1;
+                    if (gradedAssignments <= examAssignments)
+                    {
+                        sumAssignmentScores += score;
+                    }
+                    else
+                    {
+                        sumAssignmentScores += score / 10;
+                    }
+                }
+                currentStudentGrade = (decimal)(sumAssignmentScores) / examAssignments;
+
+
+                if (currentStudentGrade >= 97)
+                {
+                    currentStudentLetterGrade = "A+";
+                }
+                else if (currentStudentGrade >= 93)
+                {
+                    currentStudentLetterGrade = "A";
+                }
+                else if (currentStudentGrade >= 90)
+                {
+                    currentStudentLetterGrade = "A-";
+                }
+                else if (currentStudentGrade >= 87)
+                {
+                    currentStudentLetterGrade = "B+";
+                }
+                else if (currentStudentGrade >= 83)
+                {
+                    currentStudentLetterGrade = "B";
+                }
+                else if (currentStudentGrade >= 80)
+                {
+                    currentStudentLetterGrade = "B-";
+                }
+                else if (currentStudentGrade >= 77)
+                {
+                    currentStudentLetterGrade = "C+";
+                }
+                else if (currentStudentGrade >= 73)
+                {
+                    currentStudentLetterGrade = "C";
+                }
+                else if (currentStudentGrade >= 70)
+                {
+                    currentStudentLetterGrade = "C-";
+                }
+                else if (currentStudentGrade > 67)
+                {
+                    currentStudentLetterGrade = "D+";
+                }
+                else if (currentStudentGrade >= 63)
+                {
+                    currentStudentLetterGrade = "D";
+                }
+                else if (currentStudentGrade >= 60)
+                {
+                    currentStudentLetterGrade = "D-";
+                }
+                else
+                {
+                    currentStudentLetterGrade = "F";
+                }
+                Console.WriteLine($"{currentStudent}\t\t{currentStudentGrade}\t\t{currentStudentLetterGrade}");
+            }
         }
-
-
     }
 }
