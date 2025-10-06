@@ -19,10 +19,11 @@ namespace coinFlip
     {
         static void Main(string[] args)
         {
-            Random ran = new Random();
-            int flip = ran.Next(1, 3);
-            Console.WriteLine($"The value of flip coin is: {flip}");
-            Console.WriteLine($"{(flip < 2 ? "head" : "tail")}");
+            Random flip = new Random();
+            // int flip = ran.Next(1, 3);
+            // Console.WriteLine($"The value of flip coin is: {flip}");
+            Console.WriteLine($"The value of flip is: {flip.Next(1, 3)}");
+            Console.WriteLine($"{(flip.Next(1, 3) < 2 ? "head" : "tail")}");
         }
     }
 }
