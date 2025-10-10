@@ -14,7 +14,7 @@ namespace WhileLoop
                 Console.WriteLine(value);
                 value = current.Next(1, 56);
             }
-            Console.WriteLine($"The value of the value is:{value}");
+            Console.WriteLine($"The value of the value is: {value}");
         }
     }
 }
