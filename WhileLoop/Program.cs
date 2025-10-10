@@ -12,7 +12,7 @@ namespace WhileLoop
             while (value >= 7)
             {
                 Console.WriteLine(value);
-                value = current.Next(1, 55);
+                value = current.Next(1, 56);
             }
             Console.WriteLine($"The value of the value is:{value}");
         }
