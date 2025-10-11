@@ -47,7 +47,7 @@ namespace IntegerAcceptance
                         Console.WriteLine($"Your Input value({number}) is Accepted.");
                     }
                 }
-            } while (value == false || number < 5 || number > 5);
+            } while (value == false || number < 5 || number > 10);
         }
     }
 }
