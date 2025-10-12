@@ -14,7 +14,7 @@ namespace PetManagementSystem
             string animalNickName = "";
 
             int maxPets = 8;
-            string? readResult;
+            string readResult;
             string menuSelection = "";
             string[,] ourAnimals = new string[maxPets, 8];
 
@@ -127,7 +127,7 @@ namespace PetManagementSystem
                         string anotherPet = "y";
                         for (int i = 0; i < maxPets; i++)
                         {
-                            if (ourAnimals[i, 0] != "ID #:")
+                            if (ourAnimals[i, 0] != "ID #: ")
                             {
                                 petCount += 1;
                             }
@@ -196,7 +196,7 @@ namespace PetManagementSystem
 
                             do
                             {
-                                Console.WriteLine("Enter a description of teh pet's  personality (like or dislikes, tricks, energy lebel)");
+                                Console.WriteLine("Enter a description of the pet's  personality (like or dislikes, tricks, energy lebel)");
                                 readResult = Console.ReadLine();
                                 if (readResult != null)
                                 {
@@ -210,6 +210,7 @@ namespace PetManagementSystem
 
                             do
                             {
+                                Console.WriteLine("Enters the pet's nickname:");
                                 animalNickName = readResult.ToLower();
                                 if (animalNickName == "")
                                 {
