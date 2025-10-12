@@ -123,10 +123,160 @@ namespace PetManagementSystem
                         break;
                     case "2":
                         // Add a new animal friend to our animal's array
+                        int petCount = 0;
+                        string anotherPet = "y";
                         for (int i = 0; i < maxPets; i++)
                         {
+                            if (ourAnimals[i, 0] != "ID #:")
+                            {
+                                petCount += 1;
+                            }
+                        }
+
+                        if (petCount < maxPets)
+                        {
+                            Console.WriteLine($"We currently have {petCount} pets that need home. We can manage {maxPets - petCount} more.");
+                        }
+
+                        while (anotherPet == "y" && petCount < maxPets)
+                        {
+                            bool validEntry = false;
+                            do
+                            {
+                                Console.WriteLine("Enter the new cat and dot to begin new entry:");
+                                readResult = Console.ReadLine();
+                                if (readResult != null)
+                                {
+                                    animalSpecies = readResult.ToLower();
+                                    if (animalSpecies != "dog" && animalSpecies != "cat")
+                                    {
+                                        validEntry = false;
+                                    }
+                                    else
+                                    {
+                                        validEntry = true;
+                                    }
+                                }
+                            } while (validEntry == false);
+
+                            animalID = animalSpecies.Substring(0, 1) + (petCount + 1).ToString();
+
+                            do
+                            {
+                                int petAge;
+                                Console.WriteLine("Enter the pet's age or entry ? If unknown");
+                                readResult = Console.ReadLine();
+                                if (readResult != null)
+                                {
+                                    animalAge = readResult;
+                                    if (animalAge != "?")
+                                    {
+                                        validEntry = int.TryParse(animalAge, out petAge);
+                                    }
+                                    else
+                                    {
+                                        validEntry = true;
+                                    }
+                                }
+                            } while (validEntry == false);
+                            do
+                            {
+                                Console.WriteLine("Enter a physical description of the pet (size ,color, gender, weight, housebroken)");
+                                readResult = Console.ReadLine();
+                                if (readResult != null)
+                                {
+                                    animalPhysicalDescription = readResult.ToLower();
+                                    if (animalPhysicalDescription == "")
+                                    {
+                                        animalPhysicalDescription = "tbd";
+                                    }
+                                }
+
+                            } while (animalPhysicalDescription == "");
+
+                            do
+                            {
+                                Console.WriteLine("Enter a description of teh pet's  personality (like or dislikes, tricks, energy lebel)");
+                                readResult = Console.ReadLine();
+                                if (readResult != null)
+                                {
+                                    animalPersonalityDescription = readResult.ToLower();
+                                    if (animalPersonalityDescription == "")
+                                    {
+                                        animalPersonalityDescription = "tbd";
+                                    }
+                                }
+                            } while (animalPersonalityDescription == "");
+
+                            do
+                            {
+                                animalNickName = readResult.ToLower();
+                                if (animalNickName == "")
+                                {
+                                    animalNickName = "tbd";
+                                }
+                            } while (animalNickName == "");
+
+                            ourAnimals[petCount, 0] = "ID #: " + animalID;
+                            ourAnimals[petCount, 1] = "Species: " + animalSpecies;
+                            ourAnimals[petCount, 2] = "Age: " + animalAge;
+                            ourAnimals[petCount, 3] = "Nickname: " + animalNickName;
+                            ourAnimals[petCount, 4] = "Physical description: " + animalPhysicalDescription;
+                            ourAnimals[petCount, 5] = "Personlaity: " + animalPersonalityDescription;
+                            petCount = petCount + 1;
+                            if (petCount < maxPets)
+                            {
+                                Console.WriteLine("Do you want to enter info for another pet (y/n)");
+                                do
+                                {
+                                    readResult = Console.ReadLine();
+                                    if (readResult != null)
+                                    {
+                                        anotherPet = readResult.ToLower();
+                                    }
+                                } while (anotherPet != "y" && anotherPet != "n");
+                            }
 
                         }
+                        if (petCount >= maxPets)
+                        {
+                            Console.WriteLine("We have reached our limit on the number of pets that we can manage.");
+                            Console.WriteLine("Press the Enter key to continue.");
+                            readResult = Console.ReadLine();
+                        }
+
+                        break;
+                    case "3":
+                        Console.WriteLine("Challenge Projcet - please check back soon to see progress.");
+                        Console.WriteLine("Press the Enter key to continue.");
+                        readResult = Console.ReadLine();
+                        break;
+                    case "4":
+                        Console.WriteLine("Challenge Project - please check back soon to see progress.");
+                        Console.WriteLine("Press the Enter key to continue.");
+                        readResult = Console.ReadLine();
+                        break;
+                    case "5":
+                        Console.WriteLine("UNDER_CONSTRUCTION - please check back next month to see progress.");
+                        Console.WriteLine("Press the Enter key to continue.");
+                        readResult = Console.ReadLine();
+                        break;
+                    case "6":
+                        Console.WriteLine("UNDER CONSTRUCTION - please check back next month to see progress.");
+                        Console.WriteLine("Press the Enter key to continue.");
+                        readResult = Console.ReadLine();
+                        break;
+                    case "7":
+                        Console.WriteLine("UNDER CONSTRUCTION - please check back next month to see progress.");
+                        Console.WriteLine("Press the Enter key to continue.");
+                        readResult = Console.ReadLine();
+                        break;
+                    case "8":
+                        Console.WriteLine("UNDER CONSTRUCTION - please check back next month to see progress.");
+                        Console.WriteLine("Press the Enter key to continue.");
+                        readResult = Console.ReadLine();
+                        break;
+                    default:
                         break;
                 }
 
