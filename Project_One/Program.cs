@@ -153,7 +153,7 @@ namespace PetManagementSystem
                             // bool validEntry = false;
                             do
                             {
-                                Console.WriteLine("Enter the new cat and dot to begin new entry:");
+                                Console.WriteLine("Enter the new cat and dog to begin new entry:");
                                 readResult = Console.ReadLine();
                                 if (readResult != null)
                                 {
@@ -174,7 +174,7 @@ namespace PetManagementSystem
                             do
                             {
                                 // int petAge;
-                                Console.WriteLine("Enter the pet's age or entry ? If unknown");
+                                Console.WriteLine("Enter the pet's age or enter '?' If unknown");
                                 readResult = Console.ReadLine();
                                 if (readResult != null)
                                 {
@@ -283,9 +283,9 @@ namespace PetManagementSystem
                                         validEntry = int.TryParse(animalAge, out petAge);
                                     }
                                 } while (validEntry == false);
-                                ourAnimals[i, 2] = "Age:" + animalAge.ToString();
+                                ourAnimals[i, 2] = "Age: " + animalAge.ToString();
                             }
-                            if (ourAnimals[i, 4] == "Physical description: " && ourAnimals[i, 0] != "ID #:")
+                            if (ourAnimals[i, 4].Trim() == "Physical description:" && ourAnimals[i, 0].Trim() != "ID #:")
                             {
                                 do
                                 {
@@ -307,7 +307,7 @@ namespace PetManagementSystem
                                 ourAnimals[i, 4] = "Physical description: " + animalPhysicalDescription;
                             }
                         }
-                        Console.WriteLine("Age and physical description fields are compolete for all of our friends.\n\rPress the Enter key to continue");
+                        Console.WriteLine("Age and physical description fields are compolete for all of our pet animals.\n\rPress the Enter key to continue");
                         readResult = Console.ReadLine();
                         break;
 
@@ -317,7 +317,7 @@ namespace PetManagementSystem
                         // readResult = Console.ReadLine();
                         for (int i = 0; i < maxPets; i++)
                         {
-                            if (ourAnimals[i, 3] == "NickName: " && ourAnimals[i, 0] != "ID #:")
+                            if (ourAnimals[i, 3].Trim().ToLower() == "nickname:" && ourAnimals[i, 0].Trim() != "ID #:")
                             {
                                 do
                                 {
@@ -336,10 +336,11 @@ namespace PetManagementSystem
                                         }
                                     }
                                 } while (validEntry == false);
-                                ourAnimals[i, 3] = "Nickname: " + animalNickName;
+                                ourAnimals[i, 3] = "NickName: " + animalNickName;
                             }
-                            if (ourAnimals[i, 5] == "Personality: " && ourAnimals[i, 0] != "ID #: ")
+                            if (ourAnimals[i, 5].Trim().ToLower() == "personality:" && ourAnimals[i, 0].Trim() != "ID #:")
                             {
+                                validEntry = false;
                                 do
                                 {
                                     Console.WriteLine($"Enter a personality description for {ourAnimals[i, 0]}(likes or disliks ,ticks, energy level)");
@@ -360,7 +361,7 @@ namespace PetManagementSystem
                                 ourAnimals[i, 5] = "Personality: " + animalPersonalityDescription;
                             }
                         }
-                        Console.WriteLine("Age and physical description fields are complete for all of our friends.\n\r Press the Enter key to continue");
+                        Console.WriteLine("NickName and personality description fields are complete for all of our friends.\n\r Press the Enter key to continue");
                         readResult = Console.ReadLine();
                         break;
                     case "5":
