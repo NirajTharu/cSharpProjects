@@ -44,7 +44,14 @@ namespace TypeCastingAndConversion
             string value2 = "7";
             int resulatant = Convert.ToInt32(value1) + Convert.ToInt32(value2);
             Console.WriteLine(resulatant);
-        }
 
+
+            Console.WriteLine("Compare casting and converting a decimal into an int");
+            int valueone = (int)1.5m; //Casting truncate
+            Console.WriteLine(valueone);
+
+            int valuetwo = Convert.ToInt32(1.5m); //Converting rounds up
+            Console.WriteLine(valuetwo);
+        }
     }
 }
