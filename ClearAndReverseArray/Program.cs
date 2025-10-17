@@ -19,6 +19,19 @@ namespace ClearAndReverseMethods
             {
                 Console.WriteLine($"-- {pallet}");
             }
+            Array.Resize(ref pallets, 6);
+            Console.WriteLine($"Resizing the array to {pallets.Length} ");
+
+            pallets[4] = "C01";
+            pallets[5] = "C02";
+
+            foreach (var pallet in pallets)
+            {
+                Console.WriteLine($"--{pallet}");
+            }
+
+            Array.Resize(ref pallets, 3);
+            Console.WriteLine($"Resizing the array to 3:- {pallets.Length}");
         }
     }
 }
