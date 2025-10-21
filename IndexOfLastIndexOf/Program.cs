@@ -30,7 +30,6 @@ namespace LastIndexOfMethod
                 Console.WriteLine(message1.Substring(openingPostion, length));
                 message1 = message1.Substring(closingPosition + 1);
             }
-
         }
     }
 }
