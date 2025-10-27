@@ -1,4 +1,8 @@
 ﻿// Method with Parameters
+/*The terms 'parameter' and 'argument' are often used interchangeably.
+However, 'parameter' refers to the variable in the method signature.
+The 'argument' is the value passed when the method is called.*/
+
 using System;
 namespace ParameterInFunctionCall
 {
