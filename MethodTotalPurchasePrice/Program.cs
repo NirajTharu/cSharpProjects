@@ -19,7 +19,7 @@ namespace TotalPurchasePrice
             {
                 total -= 5.00;
             }
-            Console.WriteLine($"Total Price:{FormatDecimal(total)}");
+            Console.WriteLine($"Total Price:$ {FormatDecimal(total)}");
 
             double GetDiscountPrice(int itemIndex)
             {
