@@ -7,9 +7,20 @@ namespace StringMethod
         static void Main(string[] args)
         {
             // This reverse a word
-            string input = "snake";
-            ReverseWord(input);
-            Console.WriteLine($"Reverse word is: {ReverseWord(input)}");
+            string sentence = "there are snakes at the zoo";
+            Console.WriteLine($"Reverse word is: {ReverseWord(sentence)}");
+            Console.WriteLine($"The reverse sentnece is:{ReverseSentence(sentence)}");
+
+            string ReverseSentence(string sentence)
+            {
+                string resultOfSentence = "";
+                string[] words = sentence.Split(" ");
+                foreach (string word in words)
+                {
+                    resultOfSentence += ReverseWord(word) + " ";
+                }
+                return resultOfSentence.Trim();
+            }
             string ReverseWord(string word)
             {
                 string result = "";
@@ -19,7 +30,7 @@ namespace StringMethod
                 }
                 return result;
             }
-            string sentence = "";
+
         }
     }
 }
