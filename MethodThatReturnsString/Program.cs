@@ -8,6 +8,7 @@ namespace StringMethod
         {
             // This reverse a word
             string sentence = "there are snakes at the zoo";
+            Console.WriteLine($"The given string is: {sentence}");
             Console.WriteLine($"Reverse sentence is: {ReverseString(sentence)}");
             Console.WriteLine($"Each word are reversed: {ReverseEachWord(sentence)}");
 
