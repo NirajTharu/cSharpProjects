@@ -73,11 +73,29 @@ namespace MiniGame
                 if (TerminalResized())
                 {
                     Console.Clear();
-                    Console.WriteLine("Console was resized. Program exiting.");
+                    Console.Write("Console was resized. Program exiting.");
                     shouldExit = true;
-                    break;
                 }
-                Move();
+                else
+                {
+                    if (PlayerIsFaster())
+                    {
+                        Move(1, false);
+                    }
+                    else if (PlayerIsSick())
+                    {
+                        FreezePlayer();
+                    }
+                    else
+                    {
+                        Move(otherKeysExit: false);
+                    }
+                    if (GotFood())
+                    {
+                        ChangePlayer();
+                        ShowFood();
+                    }
+                }
             }
 
             // Returns true if the Terminal was resized 
@@ -100,7 +118,18 @@ namespace MiniGame
                 Console.SetCursorPosition(foodX, foodY);
                 Console.Write(foods[food]);
             }
-
+            bool GotFood()
+            {
+                return playerY == foodY && playerX == foodX;
+            }
+            bool PlayerIsSick()
+            {
+                return player.Equals(states[2]);
+            }
+            bool PlayerIsFaster()
+            {
+                return player.Equals(states[1]);
+            }
             // Changes the player to match the food consumed
             void ChangePlayer()
             {
@@ -117,7 +146,7 @@ namespace MiniGame
             }
 
             // Reads directional input from the Console and moves the player
-            void Move()
+            void Move(int speed = 1, bool otherKeysExit = false)
             {
                 int lastX = playerX;
                 int lastY = playerY;
