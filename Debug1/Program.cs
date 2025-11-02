@@ -22,10 +22,8 @@ namespace Debuging1
                 else if (name == "Andrew")
                     messageText = AndrewMessage();
                 else if (name == "AllGreetings")
-                    messageText = SophiaMessage();
-                messageText = messageText + "\n\r" + AndrewMessage();
-
-                Console.WriteLine(messageText + "\n\r");
+                    messageText = SophiaMessage() + "\n\r" + AndrewMessage();
+                Console.WriteLine(messageText);
             }
 
             bool pauseCode = true;
